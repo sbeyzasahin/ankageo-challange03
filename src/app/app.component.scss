@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+
+    button {
+        margin: 12px 0;
+    }
+
+
+    .list-container {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+}

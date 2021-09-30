@@ -1,0 +1,11 @@
+.main-content {
+    box-sizing: border-box;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    button {
+        margin: 12px 0;
+    }
+}
