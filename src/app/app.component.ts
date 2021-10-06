@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { FormComponent } from './form/form.component';
+import { ListComponent } from './list/list.component';
 
 @Component({
   selector: 'app-root',
@@ -6,22 +8,41 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  @ViewChildren(ListComponent) listComponents: QueryList<ListComponent>;
+  @ViewChild(FormComponent, { static: true }) formComponent: FormComponent;
+  // dateValue = new Date();
   title = 'ankageo-challange03';
-  firstName = '';
-  lastName = '';
-  removeState = false;
 
-  constructor() { }
+  constructor() {
+  }
+
+
+
+  getDataFromFormComponent = () => {
+    return this.formComponent.formGroup.getRawValue();
+  }
 
   ngOnInit() {
-
   }
 
   removeDataList() {
-    this.removeState = true;
-    setTimeout(() => {
-
-      this.removeState = false;
-    }, 1000);
+    this.listComponents.forEach(l => {
+      l.dataSource = [];
+    })
   }
+}
+
+
+
+function deneme() {
+
+}
+
+const deneme2 = function () {
+
+}
+
+
+const deneme3 = () => {
+
 }
