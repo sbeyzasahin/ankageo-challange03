@@ -1,6 +1,5 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MatTable } from '@angular/material';
-import { AppComponent } from '../app.component';
 
 interface User {
   firstName: string,
@@ -15,13 +14,9 @@ interface User {
 
 export class ListComponent implements OnInit {
 
-  constructor(public appComponent: AppComponent) { }
-  @Input() firstName: string;
-  @Input() lastName: string;
-  @Input() set removeState(value) {
 
-    if (value && this.dataSource.length > 0) this.dataSource = [];
-  }
+  @Input() getData: () => { firstName: string, lastName: string };
+
 
   displayedColumns: string[] = ['firstName', 'lastName'];
 
@@ -33,7 +28,8 @@ export class ListComponent implements OnInit {
 
 
   addUserToList() {
-    this.dataSource = [...this.dataSource, { firstName: this.firstName, lastName: this.lastName }];
+    this.dataSource = [...this.dataSource, this.getData()]
+    // this.dataSource = [...this.dataSource, { firstName: this.firstName, lastName: this.lastName }];
   }
 
 

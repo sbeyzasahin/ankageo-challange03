@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-form',
@@ -16,7 +15,7 @@ export class FormComponent implements OnInit {
   public firstNameInput = '';
   public lastNameInput = '';
 
-  constructor(private fb: FormBuilder, private appComponent: AppComponent) {
+  constructor(private fb: FormBuilder) {
     this.formGroup = fb.group({
       firstName: this.firstName,
       lastName: this.lastName
@@ -24,8 +23,8 @@ export class FormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.formGroup.get('firstName').valueChanges.subscribe((value) => this.appComponent.firstName = value);
-    this.formGroup.get('lastName').valueChanges.subscribe((value) => this.appComponent.lastName = value);
+    // this.formGroup.get('firstName').valueChanges.subscribe((value) => this.appComponent.firstName = value);
+    // this.formGroup.get('lastName').valueChanges.subscribe((value) => this.appComponent.lastName = value);
   }
 
 }

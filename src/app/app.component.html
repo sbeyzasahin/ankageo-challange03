@@ -4,7 +4,7 @@
   </div>
   <button mat-raised-button color="primary" (click)="removeDataList()">Tüm Listeleri Temizle</button>
   <div class="list-container">
-    <app-list [firstName]="firstName" [lastName]="lastName" [removeState]="removeState"></app-list>
-    <app-list [firstName]="firstName" [lastName]="lastName" [removeState]="removeState"></app-list>
+    <app-list [getData]="getDataFromFormComponent" ></app-list>
+    <app-list [getData]="getDataFromFormComponent" ></app-list>
   </div>
 </div>
